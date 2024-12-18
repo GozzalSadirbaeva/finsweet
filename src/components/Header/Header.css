@@ -1,0 +1,9 @@
+body {
+  /* background-color: #232536; */
+}
+.nav {
+  color: #a7a8af;
+}
+.nav:hover {
+  color: white;
+}
