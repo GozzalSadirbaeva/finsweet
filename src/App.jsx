@@ -5,7 +5,7 @@ import Header from "./components/Header/Header";
 import Career from "./pages/career/Career";
 import Company from "./pages/company/Company";
 import { Home } from "./pages/home/Home";
-import Service from "./pages/Service/Service";
+import Service from "./pages/servi/Service";
 const App = () => {
   return (
     <div>
