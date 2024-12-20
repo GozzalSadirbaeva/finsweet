@@ -1,6 +1,14 @@
-import React from "react";
-
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { request } from "../../../api";
 export const Home = () => {
+  const [data, setData] = useState(null);
+  const navigate = useNavigate();
+  useEffect(() => {
+    request.get("/products").then((res) => setData(res.data));
+  }, []);
+  console.log(data);
+
   return (
     <>
       <div className="bg-[#232536] mb-24">
@@ -34,6 +42,18 @@ export const Home = () => {
             <img src="/Logo3.svg" alt="" />
             <img src="/Logo5.svg" alt="" />
             <img src="/Logo4.svg" alt="" />
+          </div>
+          <div>
+            {data?.products?.map((item) => (
+              <div key={item.id} className="inline-block">
+                <img
+                  onClick={() => navigate(`/product/${item.id}`)}
+                  src={item.thumbnail}
+                  alt=""
+                />
+                <h3>{item.title}</h3>
+              </div>
+            ))}
           </div>
         </div>
       </div>
