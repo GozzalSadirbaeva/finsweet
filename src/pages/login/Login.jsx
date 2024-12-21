@@ -4,8 +4,8 @@ const Login = () => {
   const navigate = useNavigate();
   return (
     <>
-      <div className="flex justify-center items-center container  w-[30px] h-[40px]">
-        <div className="mt-[300px]">
+      <div className="flex justify-center items-center container  w-[30px] h-[40px] mb-28">
+        <div className="mt-[300px] border-2 p-24">
           <form action="" className="flex flex-col gap-5">
             <input type="text" placeholder="Username" className="bg-gray-200" />
             <input type="text" placeholder="Password" className="bg-gray-200" />

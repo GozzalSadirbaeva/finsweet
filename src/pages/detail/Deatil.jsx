@@ -13,7 +13,7 @@ const Deatil = () => {
 
   return (
     <>
-      <div className="p-20 flex gap-10">
+      <div className="p-20 flex gap-10 container">
         <div className="">
           {data?.images?.map((url) => (
             <img className="w-[110px] h-[90px]" src={url} key={url} alt="" />
