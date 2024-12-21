@@ -5,7 +5,13 @@ export const Home = () => {
   const [data, setData] = useState(null);
   const navigate = useNavigate();
   useEffect(() => {
-    request.get("/products").then((res) => setData(res.data));
+    request
+      .get("/products", {
+        params: {
+          limit: 10,
+        },
+      })
+      .then((res) => setData(res.data));
   }, []);
   console.log(data);
 
@@ -43,18 +49,23 @@ export const Home = () => {
             <img src="/Logo5.svg" alt="" />
             <img src="/Logo4.svg" alt="" />
           </div>
-          <div>
-            {data?.products?.map((item) => (
-              <div key={item.id} className="inline-block">
+        </div>
+      </div>
+      <div className="container">
+        <div className="grid grid-cols-4 gap-8">
+          {data?.products?.map((item) => (
+            <div key={item.id} className="">
+              <div className="bg-slate-500 rounded-xl">
                 <img
                   onClick={() => navigate(`/product/${item.id}`)}
                   src={item.thumbnail}
                   alt=""
                 />
-                <h3>{item.title}</h3>
               </div>
-            ))}
-          </div>
+              <h3 className=" font-bold text-lg">{item.title}</h3>
+              
+            </div>
+          ))}
         </div>
       </div>
     </>

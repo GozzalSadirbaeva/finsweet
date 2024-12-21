@@ -1,0 +1,9 @@
+.bg-gif {
+  background-image: url(/notfound.gif);
+  height: 400px;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: invert(10%) sepia(13%) saturate(180%) hue-rotate(5deg) brightness(63%)
+    contrast(120%);
+}
