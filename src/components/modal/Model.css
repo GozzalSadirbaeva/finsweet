@@ -1,0 +1,12 @@
+.anima {
+  animation: anima 0.25s ease-in-out forwards;
+  margin-top: -80px;
+  transform: translate(-50%, -50%) scale(0.9);
+}
+@keyframes anima {
+  to {
+    margin-top: 0;
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}

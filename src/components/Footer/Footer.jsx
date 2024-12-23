@@ -1,10 +1,10 @@
-import React from "react";
+import { memo } from "react";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
     <>
-      <div className="container pb-24">
+      <div className="container pb-24 pt-10">
         <div className="bg-[#666DFF] p-24 grid grid-cols-2 justify-between gap-[122px] items-center">
           <div>
             <p className="font-medium text-sm leading-5  tracking-[3px] text-white">
@@ -100,4 +100,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default memo(Footer);

@@ -1,4 +1,6 @@
+import Model from "@/components/modal/Model";
 import { useEffect, useState } from "react";
+import { FaXmark } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
 import { request } from "../../../api";
 export const Home = () => {
@@ -14,6 +16,8 @@ export const Home = () => {
       .then((res) => setData(res.data));
   }, []);
   console.log(data);
+  const [show, setShow] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
   return (
     <>
@@ -57,17 +61,42 @@ export const Home = () => {
             <div key={item.id} className="">
               <div className="bg-slate-500 rounded-xl">
                 <img
-                  onClick={() => navigate(`/product/${item.id}`)}
+                  onClick={() => {
+                    setSelectedProduct(item), setShow(true);
+                  }}
                   src={item.thumbnail}
                   alt=""
                 />
               </div>
-              <h3 className=" font-bold text-lg">{item.title}</h3>
-              
+              <h3 className=" font-bold text-lg pt-3 pb-2">{item.title}</h3>
             </div>
           ))}
         </div>
       </div>
+
+      {show && selectedProduct && (
+        <Model close={setShow}>
+          <div className="w-[400px] p-5">
+            <button
+              className="fixed right-5 text-2xl"
+              onClick={() => setShow(false)}
+            >
+              <FaXmark />
+            </button>
+            <img className="w-full" src={selectedProduct.thumbnail} alt="" />
+            <h2 className="font-bold text-lg">{selectedProduct.title}</h2>
+            <h2 className="font-medium text-base capitalize pb-3">
+              Category: {selectedProduct.category}
+            </h2>
+            <button
+              className="px-5 py-1 rounded-lg bg-blue-400 text-white "
+              onClick={() => navigate(`/product/${selectedProduct.id}`)}
+            >
+              See more...
+            </button>
+          </div>
+        </Model>
+      )}
     </>
   );
 };

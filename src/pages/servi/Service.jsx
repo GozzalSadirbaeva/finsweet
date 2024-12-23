@@ -1,6 +1,8 @@
-import React from "react";
-
+import { useEffect } from "react";
 const Service = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <div className="bg-[#FFE6D2] mb-24">

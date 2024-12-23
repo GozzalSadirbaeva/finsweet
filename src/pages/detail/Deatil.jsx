@@ -9,7 +9,10 @@ const Deatil = () => {
   useEffect(() => {
     request(`/products/${id}`).then((res) => setData(res.data));
   }, []);
-  console.log(data);
+  // console.log(data);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <>
